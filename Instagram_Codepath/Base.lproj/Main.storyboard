@@ -106,7 +106,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="postContentTextView" destination="Ar4-yg-4Ta" id="Ncn-fz-F8H"/>
+                                            <outlet property="postedCaptionLabel" destination="UAf-xJ-S4O" id="xm3-0D-xNB"/>
                                             <outlet property="postedPhoto" destination="9fK-wL-3Tp" id="D0N-6L-Nfq"/>
                                             <outlet property="profileImage" destination="rwE-Hl-0TJ" id="iuD-J3-9m9"/>
                                             <outlet property="timeCreatedLabel" destination="x2h-9H-TDy" id="FgX-pD-psq"/>
@@ -119,7 +119,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="0Ng-Ku-F32">
-                        <barButtonItem key="leftBarButtonItem" title="LogOut" id="zic-Xj-TdS"/>
+                        <barButtonItem key="leftBarButtonItem" title="LogOut" id="zic-Xj-TdS">
+                            <connections>
+                                <action selector="onLogOut:" destination="SlT-G1-8Rh" id="Gay-bM-91P"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Compose" id="XkR-So-hdH">
                             <connections>
                                 <segue destination="GE6-bf-c1m" kind="show" id="vFo-Ne-Qg3"/>
@@ -138,7 +142,6 @@
         <!--Compose View Controller-->
         <scene sceneID="LLV-Be-Vll">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7gk-qb-rB5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="ComposeViewController" automaticallyAdjustsScrollViewInsets="NO" id="GE6-bf-c1m" customClass="ComposeViewController" customModule="Instagram_Codepath" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fm5-lC-nPz"/>
@@ -184,6 +187,7 @@
                         <outlet property="composeImageView" destination="b43-tF-YGd" id="MqO-yw-utk"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7gk-qb-rB5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2556" y="364"/>
         </scene>

@@ -17,7 +17,13 @@ class PhotoTableViewCell: UITableViewCell {
     @IBOutlet weak var timeCreatedLabel: UILabel!
     @IBOutlet weak var postContentTextView: UITextView!
     
+    @IBOutlet weak var postedCaptionLabel: UILabel!
     
+    var object: PFObject? {
+        didSet {
+          
+        }
+    }
 //    var object: PFObject? {
 //        didSet {
 //            photo = Photo(object: object!)
