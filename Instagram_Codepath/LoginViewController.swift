@@ -35,10 +35,22 @@ class LoginViewController: UIViewController {
             print("you're logged in")
             
                 self.performSegueWithIdentifier("logInSegue", sender: nil)
-                }
+            
+        }else{
+            print(error?.localizedDescription)
+            
+            let alertController = UIAlertController(title: error?.localizedDescription, message: "Username taken", preferredStyle: UIAlertControllerStyle.Alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+            
+            alertController.addAction(cancelAction)
+            let OKAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
         }
 
     }
+}
     
     
     @IBAction func onSignUp(sender: AnyObject) {
@@ -56,7 +68,7 @@ class LoginViewController: UIViewController {
             }else{
                 print(error?.localizedDescription)
                 
-                let alertController = UIAlertController(title: "Error", message: "Username taken", preferredStyle: UIAlertControllerStyle.Alert)
+                let alertController = UIAlertController(title: error?.localizedDescription, message: "Username taken", preferredStyle: UIAlertControllerStyle.Alert)
                 let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
                 
                 alertController.addAction(cancelAction)

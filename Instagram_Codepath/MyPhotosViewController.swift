@@ -7,14 +7,69 @@
 //
 
 import UIKit
+import Parse
 
-class MyPhotosViewController: UIViewController {
+class MyPhotosViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationBarDelegate {
+    
+    var images = [PFFile]()
+    var mediaArray: [PFObject]?
+    
 
+    @IBOutlet weak var tableVIew: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableVIew.rowHeight = UITableViewAutomaticDimension
+        tableVIew.estimatedRowHeight = 120
+        
+        tableVIew.dataSource = self
+        tableVIew.delegate = self
+        
+        getData()
+        self.tableVIew.reloadData()
 
         // Do any additional setup after loading the view.
     }
+    
+    func getData() {
+     
+        let query = PFQuery(className: "UserData")
+        query.orderByDescending("_created_at")
+        query.limit = 20
+        
+        query.findObjectsInBackgroundWithBlock { (media: [PFObject]?, error: NSError?) -> Void in
+            if media != nil {
+                self.mediaArray = media
+                self.tableVIew.reloadData()
+            } else {
+                print(error?.localizedDescription)
+            }
+        }    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        print("rows being called")
+        
+        return images.count
+
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableVIew.dequeueReusableCellWithIdentifier("PhotoCell", forIndexPath: indexPath) as! PhotoTableViewCell
+
+        
+        
+        
+        
+        
+        
+        
+        return cell;
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

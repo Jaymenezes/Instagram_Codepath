@@ -14,6 +14,8 @@ import Parse
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -25,13 +27,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://boiling-garden-20129.herokuapp.com/parse"
             })
         )
-//        if PFUser.currentUser() != nil {
-//            // if there is a logged in user then load the home view controller
+//        
+//               if PFUser.currentUser() != nil {
+////             if there is a logged in user then load the home view controller
 //            
-//            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MyPhotosViewController")
+//            let viewController = storyboard.instantiateViewControllerWithIdentifier("MyPhotosViewController")
 //            window?.rootViewController = viewController
+//            window?.makeKeyAndVisible()
+//        }else{
+//            
+//            let viewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
+//            window?.rootViewController = viewController
+//            window?.makeKeyAndVisible()
+//            
 //        }
-        
+
         return true
     }
 

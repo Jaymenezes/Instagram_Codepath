@@ -14,6 +14,9 @@
 		CEA8BFD11C869C16006662E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA8BFD01C869C16006662E8 /* Assets.xcassets */; };
 		CEA8BFD41C869C16006662E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEA8BFD21C869C16006662E8 /* LaunchScreen.storyboard */; };
 		CEEFAEE51C8A6D3A0058628A /* MyPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFAEE41C8A6D3A0058628A /* MyPhotosViewController.swift */; };
+		CEEFAEE71C8B7C330058628A /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFAEE61C8B7C330058628A /* PhotoTableViewCell.swift */; };
+		CEEFAEEA1C8BA9140058628A /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFAEE91C8BA9140058628A /* ComposeViewController.swift */; };
+		CEEFAEEC1C8BCC230058628A /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEFAEEB1C8BCC230058628A /* UserData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		CEA8BFD31C869C16006662E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEA8BFD51C869C16006662E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEEFAEE41C8A6D3A0058628A /* MyPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPhotosViewController.swift; sourceTree = "<group>"; };
+		CEEFAEE61C8B7C330058628A /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
+		CEEFAEE91C8BA9140058628A /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		CEEFAEEB1C8BCC230058628A /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		E3C3B584462D854BFC8C1DD8 /* Pods-Instagram_Codepath.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram_Codepath.release.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram_Codepath/Pods-Instagram_Codepath.release.xcconfig"; sourceTree = "<group>"; };
 		F2902EA0EDEFB7BD9779801C /* Pods-Instagram_Codepath.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Instagram_Codepath.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Instagram_Codepath/Pods-Instagram_Codepath.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,14 +87,25 @@
 			isa = PBXGroup;
 			children = (
 				CEA8BFC91C869C16006662E8 /* AppDelegate.swift */,
-				CEA8BFCD1C869C16006662E8 /* Main.storyboard */,
-				CEEFAEE41C8A6D3A0058628A /* MyPhotosViewController.swift */,
-				CE29A9BB1C86A0E200380E34 /* LoginViewController.swift */,
+				CEEFAEE61C8B7C330058628A /* PhotoTableViewCell.swift */,
+				CEEFAEEB1C8BCC230058628A /* UserData.swift */,
+				CEEFAEE81C8BA8D30058628A /* view controllers */,
 				CEA8BFD01C869C16006662E8 /* Assets.xcassets */,
+				CEA8BFCD1C869C16006662E8 /* Main.storyboard */,
 				CEA8BFD21C869C16006662E8 /* LaunchScreen.storyboard */,
 				CEA8BFD51C869C16006662E8 /* Info.plist */,
 			);
 			path = Instagram_Codepath;
+			sourceTree = "<group>";
+		};
+		CEEFAEE81C8BA8D30058628A /* view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CEEFAEE91C8BA9140058628A /* ComposeViewController.swift */,
+				CEEFAEE41C8A6D3A0058628A /* MyPhotosViewController.swift */,
+				CE29A9BB1C86A0E200380E34 /* LoginViewController.swift */,
+			);
+			name = "view controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +231,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEEFAEEC1C8BCC230058628A /* UserData.swift in Sources */,
+				CEEFAEEA1C8BA9140058628A /* ComposeViewController.swift in Sources */,
+				CEEFAEE71C8B7C330058628A /* PhotoTableViewCell.swift in Sources */,
 				CE29A9BC1C86A0E200380E34 /* LoginViewController.swift in Sources */,
 				CEEFAEE51C8A6D3A0058628A /* MyPhotosViewController.swift in Sources */,
 				CEA8BFCA1C869C16006662E8 /* AppDelegate.swift in Sources */,
