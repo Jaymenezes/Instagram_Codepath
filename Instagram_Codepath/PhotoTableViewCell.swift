@@ -15,27 +15,36 @@ class PhotoTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var postedPhoto: UIImageView!
     @IBOutlet weak var timeCreatedLabel: UILabel!
-    @IBOutlet weak var postContentTextView: UITextView!
-    
     @IBOutlet weak var postedCaptionLabel: UILabel!
     
-    var object: PFObject? {
-        didSet {
-          
-        }
-    }
-//    var object: PFObject? {
+//    var postsObject: PFObject? {
 //        didSet {
-//            photo = Photo(object: object!)
-//            photo.cell = self;
+//            userPost = UserPost(postObject: postsObject!)
+//            userPost.cell = self;
 //        }
 //    }
 //    
-//    var photo: Photo! {
+//    var userPost: UserPost! {
 //        didSet {
-//            postedPhoto.image = photo.image
+//            postedPhoto.image = userPost.photo
+//            print("This is the image that is to be set: \(userPost.photo))")
+//            // this causes the nil crash!! so userPost.photo must be nil...
+//            //            print("This is the image that is to be set: \((userPost.photo)!)")
+//            
+//            
+//            if userPost.caption == postedCaptionLabel {
+//                postedCaptionLabel.text = ""
+//            } else {
+//                postedCaptionLabel.text = userPost.caption
+//            }
+//            print("the caption is: \((postedCaptionLabel.text)!)")
+//            
+//            userNameLabel.text = userPost.author?.username
+//            print("the user is: \((userNameLabel.text)!)")
+//            print("")
 //        }
 //    }
+//
     
     
     override func awakeFromNib() {

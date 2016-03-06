@@ -72,7 +72,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoTableViewCell" rowHeight="341" id="Rek-bL-7fh" userLabel="PhotoTableViewCell" customClass="PhotoTableViewCell" customModule="Instagram_Codepath" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PhotoCell" rowHeight="341" id="Rek-bL-7fh" userLabel="PhotoTableViewCell" customClass="PhotoTableViewCell" customModule="Instagram_Codepath" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="341"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rek-bL-7fh" id="5sO-uk-UA7">
@@ -106,7 +106,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="postedCaptionLabel" destination="UAf-xJ-S4O" id="xm3-0D-xNB"/>
+                                            <outlet property="postedCaptionLabel" destination="UAf-xJ-S4O" id="lph-rF-UIc"/>
                                             <outlet property="postedPhoto" destination="9fK-wL-3Tp" id="D0N-6L-Nfq"/>
                                             <outlet property="profileImage" destination="rwE-Hl-0TJ" id="iuD-J3-9m9"/>
                                             <outlet property="timeCreatedLabel" destination="x2h-9H-TDy" id="FgX-pD-psq"/>

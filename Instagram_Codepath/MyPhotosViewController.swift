@@ -12,7 +12,7 @@ import Parse
 class MyPhotosViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UINavigationBarDelegate {
     
     var refreshControl: UIRefreshControl!
-    var mediaArray: [PFObject]?
+    var userPosts: [PFObject]?
     
     
 
@@ -21,8 +21,8 @@ class MyPhotosViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableVIew.rowHeight = UITableViewAutomaticDimension
-        tableVIew.estimatedRowHeight = 120
+//        tableVIew.rowHeight = UITableViewAutomaticDimension
+//        tableVIew.estimatedRowHeight = 120
         
         tableVIew.dataSource = self
         tableVIew.delegate = self
@@ -47,7 +47,7 @@ class MyPhotosViewController: UIViewController, UITableViewDataSource, UITableVi
         
         query.findObjectsInBackgroundWithBlock { (media: [PFObject]?, error: NSError?) -> Void in
             if media != nil {
-                self.mediaArray = media
+                self.userPosts = media
                 self.tableVIew.reloadData()
             } else {
                 print(error?.localizedDescription)
@@ -64,18 +64,20 @@ class MyPhotosViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        print("rows being called")
-        
-        return mediaArray!.count
-
+        if let userPosts = userPosts {
+            return userPosts.count
+        }
+        else {
+            return 0
+        }
     }
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableVIew.dequeueReusableCellWithIdentifier("PhotosTableViewCell", forIndexPath: indexPath) as! PhotoTableViewCell
+        let cell = tableVIew.dequeueReusableCellWithIdentifier("PhotoCell", forIndexPath: indexPath) as! PhotoTableViewCell
 
         
-        let media = mediaArray![indexPath.row]
+        let media = userPosts![indexPath.row]
         cell.postedCaptionLabel.text = media["caption"] as? String
         let userImageFile = media["media"] as! PFFile
         userImageFile.getDataInBackgroundWithBlock {
@@ -100,7 +102,7 @@ class MyPhotosViewController: UIViewController, UITableViewDataSource, UITableVi
         
         query.findObjectsInBackgroundWithBlock { (media: [PFObject]?, error: NSError?) -> Void in
             if media != nil {
-                self.mediaArray = media
+                self.userPosts = media
                 self.tableVIew.reloadData()
             } else {
                 print(error?.localizedDescription)

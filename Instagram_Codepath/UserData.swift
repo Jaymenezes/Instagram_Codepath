@@ -11,6 +11,48 @@ import Parse
 
 
 class UserData: NSObject {
+    
+    var image: UIImage?
+    var author: PFUser?
+    var caption: String?
+    var likesCount: Int?
+    var commentsCount: Int?
+    
+    var cell: PhotoTableViewCell?
+    
+//    
+//    init(object : PFObject) {
+//        super .init()
+//        
+//        let newObject = object
+//        
+//        caption = newObject["caption"] as? String
+//        likesCount = newObject["likesCount"] as? Int
+//        commentsCount = newObject["commentsCount"] as? Int
+//        
+//        if let newImage = object.valueForKey("media")! as? PFFile {
+//            
+//            newImage.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
+//                if (error == nil) {
+//                    print("Image data found.. saving UIImage")
+//                    let image = UIImage(data: imageData!)
+//                    print(image)
+//                    self.image = image
+//                    self.cell?.userPost = self;
+//                    
+//                    
+//                    // NSNotificationCenter.defaultCenter().postNotificationName(imageDataSetNotification, object: nil)
+//                } else {
+//                    print("ERROR: could not get image \(error?.localizedDescription)")
+//                }
+//                }, progressBlock: { (int: Int32) -> Void in
+//                    print("int yay!")
+//            })
+//        }
+//        
+//    }
+    
+    
     class func postUserImage(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock){
         
     
