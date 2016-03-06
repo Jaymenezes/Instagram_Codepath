@@ -21,20 +21,22 @@ class MyPhotosViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        tableVIew.rowHeight = UITableViewAutomaticDimension
-//        tableVIew.estimatedRowHeight = 120
+
         
         tableVIew.dataSource = self
         tableVIew.delegate = self
         
-        getData()
-        self.tableVIew.reloadData()
+ 
         
         self.refreshControl = UIRefreshControl()
         self.refreshControl.attributedTitle = NSAttributedString(string: "Pull to Refresh")
-        self.refreshControl.addTarget(self, action: "refresh", forControlEvents: UIControlEvents.ValueChanged)
+        self.refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.tableVIew.addSubview(refreshControl)
         
+        getData()
+        self.tableVIew.reloadData()
+        self.refreshControl.endRefreshing()
+
 
         // Do any additional setup after loading the view.
     }
@@ -63,7 +65,7 @@ class MyPhotosViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
+
         if let userPosts = userPosts {
             return userPosts.count
         }
@@ -79,7 +81,11 @@ class MyPhotosViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let media = userPosts![indexPath.row]
         cell.postedCaptionLabel.text = media["caption"] as? String
+        cell.userNameLabel.text = media["addedBy"] as? String
+        cell.timeCreatedLabel.text = media["date"] as? String
+        
         let userImageFile = media["media"] as! PFFile
+        
         userImageFile.getDataInBackgroundWithBlock {
             (imageData: NSData?, error: NSError?) -> Void in
             if error == nil {
@@ -96,7 +102,7 @@ class MyPhotosViewController: UIViewController, UITableViewDataSource, UITableVi
     }
 
     func refresh(sender: AnyObject) {
-        let query = PFQuery(className: "UserMedia")
+        let query = PFQuery(className: "UserData")
         query.orderByDescending("_created_at")
         query.limit = 20
         
@@ -104,6 +110,8 @@ class MyPhotosViewController: UIViewController, UITableViewDataSource, UITableVi
             if media != nil {
                 self.userPosts = media
                 self.tableVIew.reloadData()
+                self.refreshControl.endRefreshing()
+
             } else {
                 print(error?.localizedDescription)
             }
@@ -116,12 +124,11 @@ class MyPhotosViewController: UIViewController, UITableViewDataSource, UITableVi
         PFUser.logOutInBackgroundWithBlock { (error: NSError?) -> Void in
             if error == nil {
                 print("User logged out")
-                self.performSegueWithIdentifier("logOutSegueID", sender: nil)
+                self.performSegueWithIdentifier("LogOut", sender: nil)
             }
             else {
                 print("Error while logging out")
             }
-            self.refreshControl.endRefreshing()
     
         }
     }

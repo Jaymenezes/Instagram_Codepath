@@ -54,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="364"/>
+            <point key="canvasLocation" x="1101" y="1106"/>
         </scene>
         <!--My Photos View Controller-->
         <scene sceneID="uRC-hv-zly">
@@ -122,6 +122,7 @@
                         <barButtonItem key="leftBarButtonItem" title="LogOut" id="zic-Xj-TdS">
                             <connections>
                                 <action selector="onLogOut:" destination="SlT-G1-8Rh" id="Gay-bM-91P"/>
+                                <segue destination="BYZ-38-t0r" kind="show" identifier="LogOut" id="2ni-QW-xfA"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Compose" id="XkR-So-hdH">
@@ -173,6 +174,7 @@
                                 <state key="normal" title="Post"/>
                                 <connections>
                                     <action selector="onPostToProfile:" destination="GE6-bf-c1m" eventType="touchUpInside" id="no9-bj-FDc"/>
+                                    <segue destination="SlT-G1-8Rh" kind="show" id="aD1-mA-2J8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -210,4 +212,7 @@
             <point key="canvasLocation" x="1583" y="364"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="aD1-mA-2J8"/>
+    </inferredMetricsTieBreakers>
 </document>

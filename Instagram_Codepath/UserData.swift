@@ -14,44 +14,11 @@ class UserData: NSObject {
     
     var image: UIImage?
     var author: PFUser?
+    var createdAt: String?
     var caption: String?
-    var likesCount: Int?
-    var commentsCount: Int?
     
     var cell: PhotoTableViewCell?
-    
-//    
-//    init(object : PFObject) {
-//        super .init()
-//        
-//        let newObject = object
-//        
-//        caption = newObject["caption"] as? String
-//        likesCount = newObject["likesCount"] as? Int
-//        commentsCount = newObject["commentsCount"] as? Int
-//        
-//        if let newImage = object.valueForKey("media")! as? PFFile {
-//            
-//            newImage.getDataInBackgroundWithBlock({ (imageData: NSData?, error: NSError?) -> Void in
-//                if (error == nil) {
-//                    print("Image data found.. saving UIImage")
-//                    let image = UIImage(data: imageData!)
-//                    print(image)
-//                    self.image = image
-//                    self.cell?.userPost = self;
-//                    
-//                    
-//                    // NSNotificationCenter.defaultCenter().postNotificationName(imageDataSetNotification, object: nil)
-//                } else {
-//                    print("ERROR: could not get image \(error?.localizedDescription)")
-//                }
-//                }, progressBlock: { (int: Int32) -> Void in
-//                    print("int yay!")
-//            })
-//        }
-//        
-//    }
-    
+
     
     class func postUserImage(image: UIImage?, withCaption caption: String?, withCompletion completion: PFBooleanResultBlock){
         
@@ -62,10 +29,10 @@ class UserData: NSObject {
     
     // Add relevant fields to the object
     media["media"] = getPFFileFromImage(image) // PFFile column type
-    media["author"] = PFUser.currentUser() // Pointer column type that points to PFUser
+    media["addedBy"] = PFUser.currentUser() // Pointer column type that points to PFUser
+    media["date"] = media.dataAvailable
+    
     media["caption"] = caption
-    media["likesCount"] = 0
-    media["commentsCount"] = 0
     
     media.saveInBackgroundWithBlock(completion)
     print("posted succesfully")

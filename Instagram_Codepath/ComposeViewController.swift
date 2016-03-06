@@ -108,7 +108,6 @@ class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, 
             // Do something with the images (based on your use case)
             composeImageView.image = editedImage
             
-            // Dismiss UIImagePickerController to go back to your original view controller
         }
 
         
@@ -126,11 +125,12 @@ class ComposeViewController: UIViewController, UIImagePickerControllerDelegate, 
                 print("Posted to Parse")
                 self.composeImageView.image = nil
                 self.composeCaptionTextView.text = ""
-                
+
             }
             else {
                 print("Can't post to parse")
             }
+
         }
         
 
