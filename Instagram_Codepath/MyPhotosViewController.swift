@@ -45,6 +45,8 @@ class MyPhotosViewController: UIViewController, UITableViewDataSource, UITableVi
      
         let query = PFQuery(className: "UserData")
         query.orderByDescending("_created_at")
+        query.includeKey("author")
+        query.includeKey("_created_at")
         query.limit = 20
         
         query.findObjectsInBackgroundWithBlock { (media: [PFObject]?, error: NSError?) -> Void in
