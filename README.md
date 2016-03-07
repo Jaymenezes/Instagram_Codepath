@@ -37,7 +37,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-![Walkthrough](gif_insta_1.0.gif)
+![Walkthrough](gif_insta_1.0)
 
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
