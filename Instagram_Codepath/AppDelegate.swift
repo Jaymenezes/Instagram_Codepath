@@ -15,7 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
 
@@ -28,20 +27,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://boiling-garden-20129.herokuapp.com/parse"
             })
         )
-//        
-//               if PFUser.currentUser() != nil {
-////             if there is a logged in user then load the home view controller
-//            
-//            let viewController = storyboard.instantiateViewControllerWithIdentifier("MyPhotosViewController")
-//            window?.rootViewController = viewController
-//            window?.makeKeyAndVisible()
-//        }else{
-//            
-//            let viewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
-//            window?.rootViewController = viewController
-//            window?.makeKeyAndVisible()
-//            
-//        }
+        
+               if PFUser.currentUser() != nil {
+            
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("HomeNavigationController")
+            window?.rootViewController = viewController
+            window?.makeKeyAndVisible()
+        }else{
+            
+            let viewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
+            window?.rootViewController = viewController
+            window?.makeKeyAndVisible()
+            
+        }
 
         return true
     }

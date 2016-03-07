@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:ComposeViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:Instagram_Codepath.xcodeproj">
    </FileRef>
    <FileRef
